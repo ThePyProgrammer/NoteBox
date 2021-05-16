@@ -1,7 +1,8 @@
-#Syntax Highlighter
+# Syntax Highlighter
+
 from tkinter import *
 from pygments import lex
-from pygments.lexers.python import Python3Lexer, PythonLexer, CythonLexer, DgLexer
+from pygments.lexers.python import PythonLexer, CythonLexer, DgLexer
 from pygments.lexers.special import TextLexer
 from pygments.lexers.html import ScamlLexer, HtmlLexer, DtdLexer, HamlLexer, XmlLexer, PugLexer
 from pygments.lexers.templates import HtmlPhpLexer
@@ -19,17 +20,17 @@ from pygments.lexers.basic import VBScriptLexer
 from pygments.lexers.c_cpp import CLexer, CppLexer
 from pygments.lexers.c_like import ArduinoLexer, CharmciLexer, ClayLexer, CudaLexer
 from pygments.lexers.c_like import ECLexer, PikeLexer, SwigLexer, ValaLexer 
-from pygments.lexers.actionscript import ActionScript3Lexer,MxmlLexer
+from pygments.lexers.actionscript import ActionScript3Lexer, MxmlLexer
 from pygments.lexers.algebra import MathematicaLexer, MuPADLexer
 from pygments.lexers.css import CssLexer, LessCssLexer, SassLexer, ScssLexer
 from pygments.lexers.data import JsonLexer, YamlLexer, JsonLdLexer
 from pygments.lexers.email import EmailLexer
 from pygments.lexers.esoteric import BrainfuckLexer as BfLexer
-from pygments.lexers.graphics import PostScriptLexer,PovrayLexer
+from pygments.lexers.graphics import PostScriptLexer, PovrayLexer
 from pygments.lexers.go import GoLexer
 from pygments.lexers.j import JLexer
 from pygments.lexers.javascript import CoffeeScriptLexer, DartLexer, EarlGreyLexer, JavascriptLexer
-from pygments.lexers.javascript import JuttleLexer, KalLexer, LassoLexer,LiveScriptLexer, MaskLexer
+from pygments.lexers.javascript import JuttleLexer, KalLexer, LassoLexer, LiveScriptLexer, MaskLexer
 from pygments.lexers.javascript import ObjectiveJLexer, TypeScriptLexer
 from pygments.lexers.julia import JuliaLexer
 from pygments.lexers.objective import ObjectiveCLexer, ObjectiveCppLexer, SwiftLexer, LogosLexer
@@ -54,7 +55,8 @@ from pygments.lexers.crystal import CrystalLexer
 from pygments.lexers.d import CrocLexer, DLexer
 from pygments.lexers.dalvik import SmaliLexer
 from pygments.lexers.dotnet import BooLexer
-from pygments.lexers.dsls import RslLexer, ZeekLexer, ThriftLexer, SnowballLexer, AlloyLexer, PanLexer, ProtoBufLexer, PuppetLexer
+from pygments.lexers.dsls import RslLexer, ZeekLexer, ThriftLexer, SnowballLexer, AlloyLexer
+from pygments.lexers.dsls import PanLexer, ProtoBufLexer, PuppetLexer
 from pygments.lexers.dylan import DylanLexer, DylanLidLexer
 from pygments.lexers.ecl import ECLLexer
 from pygments.lexers.eiffel import EiffelLexer
@@ -68,14 +70,16 @@ from pygments.lexers.forth import ForthLexer
 from pygments.lexers.fortran import FortranFixedLexer, FortranLexer
 from pygments.lexers.grammar_notation import AbnfLexer, BnfLexer, JsgfLexer
 from pygments.lexers.graph import CypherLexer
-from pygments.lexers.haskell import AgdaLexer, LiterateIdrisLexer, LiterateHaskellLexer, LiterateCryptolLexer, LiterateAgdaLexer, KokaLexer, CryptolLexer, HaskellLexer, IdrisLexer
+from pygments.lexers.haskell import AgdaLexer, LiterateIdrisLexer, LiterateHaskellLexer, LiterateCryptolLexer
+from pygments.lexers.haskell import LiterateAgdaLexer, KokaLexer, CryptolLexer, HaskellLexer, IdrisLexer
 from pygments.lexers.haxe import HaxeLexer, HxmlLexer
 from pygments.lexers.hdl import VerilogLexer, SystemVerilogLexer, VhdlLexer
 from pygments.lexers.idl import IDLLexer
 from pygments.lexers.igor import IgorLexer
 from pygments.lexers.inferno import LimboLexer
 from pygments.lexers.iolang import IoLexer
-from pygments.lexers.jvm import IokeLexer, XtendLexer, ScalaLexer, SarlLexer, PigLexer, JasminLexer, AspectJLexer, GoloLexer, CeylonLexer, ClojureLexer, ClojureScriptLexer
+from pygments.lexers.jvm import IokeLexer, XtendLexer, ScalaLexer, SarlLexer, PigLexer, JasminLexer, AspectJLexer
+from pygments.lexers.jvm import GoloLexer, CeylonLexer, ClojureLexer, ClojureScriptLexer
 from pygments.lexers.lisp import CPSALexer, CommonLispLexer, EmacsLispLexer, FennelLexer
 from pygments.lexers.lisp import NewLispLexer, RacketLexer, SchemeLexer, ShenLexer, XtlangLexer
 from pygments.lexers.make import CMakeLexer, MakefileLexer
@@ -84,7 +88,6 @@ from pygments.lexers.matlab import ScilabLexer
 from pygments.lexers.ml import OcamlLexer, OpaLexer, SMLLexer
 from pygments.lexers.modeling import BugsLexer, JagsLexer, ModelicaLexer, StanLexer
 from pygments.lexers.monte import MonteLexer
-#from pygments.lexers.mosel import MoselLexer
 from pygments.lexers.ncl import NCLLexer
 from pygments.lexers.nimrod import NimrodLexer
 from pygments.lexers.nit import NitLexer
@@ -102,7 +105,6 @@ from pygments.lexers.qvt import QVToLexer
 from pygments.lexers.r import RConsoleLexer, RdLexer, SLexer
 from pygments.lexers.rdf import ShExCLexer, SparqlLexer, TurtleLexer
 from pygments.lexers.rebol import RebolLexer, RedLexer
-#from pygments.lexers.ride import RideLexer
 from pygments.lexers.rnc import RNCCompactLexer as RNCCLexer
 from pygments.lexers.roboconf import RoboconfGraphLexer, RoboconfInstancesLexer
 from pygments.lexers.robotframework import RobotFrameworkLexer as RFLexer
@@ -110,7 +112,8 @@ from pygments.lexers.ruby import FancyLexer
 from pygments.lexers.rust import RustLexer
 from pygments.lexers.sas import SASLexer
 from pygments.lexers.scdoc import ScdocLexer
-from pygments.lexers.scripting import EasytrieveLexer, RexxLexer, HybrisLexer, MOOCodeLexer, JclLexer, LSLLexer, LuaLexer
+from pygments.lexers.scripting import EasytrieveLexer, RexxLexer, HybrisLexer, MOOCodeLexer
+from pygments.lexers.scripting import JclLexer, LSLLexer, LuaLexer
 from pygments.lexers.sgf import SmartGameFormatLexer as SGFLexer
 from pygments.lexers.shell import SlurmBashLexer, TcshLexer
 from pygments.lexers.slash import SlashLexer
@@ -131,13 +134,14 @@ from pygments.lexers.trafficscript import RtsLexer
 from pygments.lexers.typoscript import TypoScriptLexer
 from pygments.lexers.unicon import IconLexer, UcodeLexer, UniconLexer
 from pygments.lexers.urbi import UrbiscriptLexer
-#from pygments.lexers.usd import UsdLexer
 from pygments.lexers.varnish import VCLLexer
 from pygments.lexers.verification import BoogieLexer, SilverLexer
 from pygments.lexers.webmisc import CirruLexer, DuelLexer, QmlLexer, SlimLexer, XQueryLexer
 from pygments.lexers.whiley import WhileyLexer
 from pygments.lexers.x10 import X10Lexer
 from pygments.lexers.zig import ZigLexer
+
+
 havePygments = True
 
 extensions = (
@@ -428,59 +432,64 @@ class IPyText(object):
         self.baseclass.delete(self, '1.0', END)  # initial text
         self.baseclass.insert(self, END, text)
         self.bind("<KeyRelease>", self._update)
-        #self.config(font='Courier 14', tabs=40)
         self.font_family, self.font_size = self.widget.family, self.widget.size
         self._config_tags()
         self._update()  # first time
 
     def _config_tags(self):
-        self.tag_configure("Token.Comment.Single", foreground="#aaaaaa") #grey
-        self.tag_configure("Token.Comment.Multiline", foreground="#aaaaaa") #grey
-        self.tag_configure("Token.Comment.Preproc", foreground='#42a5f5') #blue
-        self.tag_configure("Token,Comment.Special", foreground='#ee2400') #red
-        self.tag_configure("Token.Comment.Hashbang", foreground="#aaaaaa") #grey
-        self.tag_configure("Token.Keyword", foreground='#ee2400') #red
-        self.tag_configure("Token.Keyword.Constant", foreground='#42a5f5') #blue
-        self.tag_configure("Token.Keyword.Declaration", foreground='#42a5f5') #blue
-        self.tag_configure("Token.Keyword.Namespace", foreground='#ee2400') #red
-        self.tag_configure("Token.Name", foreground='#444444') #blue
-        self.tag_configure("Token.Name.Builtin", foreground='#42a5f5') #blue
-        self.tag_configure("Token.Name.Class", foreground='#7f00ff') #violet
-        self.tag_configure("Token.Name.Function", foreground='#7f50af') #violet
-        self.tag_configure("Token.Name.Function.Magic", foreground='#42a5f5') #blue
-        self.tag_configure("Token.Name.Variable.Magic", foreground='#42a5f5') #blue
-        self.tag_configure("Token.Literal.String.Affix", foreground='#ee2400') #red
-        self.tag_configure("Token.Literal.String.Escape", foreground='#7f00ff') #red
-        self.tag_configure("Token.Literal.String", foreground='#008000') #green
-        self.tag_configure("Token.Operator", foreground='#ee2400') #red
-        self.tag_configure("Token.Operator.Word", foreground='#ee2400') #red
-        self.tag_configure("Token.Punctuation", foreground='#888888') #dark grey
-        self.tag_configure("Token.Name.Tag", foreground='#ee2400') #red
-        self.tag_configure("Token.Name.Variable", foreground='#42a5f5') #blue
-        self.tag_configure("Token.Name.Variable.Class", foreground='#42a5f5') #blue
-        self.tag_configure("Token.Name.Variable.Global", foreground='#42a5f5') #blue
-        self.tag_configure("Token.Name.Variable.Instance", foreground='#42a5f5') #blue
-        self.tag_configure("Token.Name.Label", foreground='#ee2400') #red
-        self.tag_configure("Token.Name.Builtin.Pseudo", foreground='#42a5f5') #blue
-        self.tag_configure("Token.Name.Constant", foreground='#42a5f5') #blue
-        self.tag_configure("Token.Name.Entity", foreground='#7f00ff') #violet
-        self.tag_configure("Token.Name.Exception", foreground='#ee2400') #red
-        self.tag_configure("Token.Name.Decorator", foreground='#7f00ff') #violet
-        self.tag_configure("Token.Name.Attribute", foreground='#ff8c00') #orange
-        self.tag_configure("Token.Name.Namespace", foreground='#42a5f5') #blue
-        self.tag_configure("Token.Keyword.Pseudo", foreground='#7f00ff') #violet
-        self.tag_configure("Token.Keyword.Reserved", foreground='#ee2400') #red
-        self.tag_configure("Token.Keyword.Type", foreground='#42a5f5') #blue
+        self.tag_configure("Token.Comment.Single", foreground="#aaaaaa")  # grey
+        self.tag_configure("Token.Comment.Multiline", foreground="#aaaaaa")  # grey
+        self.tag_configure("Token.Comment.Preproc", foreground='#42a5f5')  # blue
+        self.tag_configure("Token,Comment.Special", foreground='#ee2400')  # red
+        self.tag_configure("Token.Comment.Hashbang", foreground="#aaaaaa")  # grey
+        self.tag_configure("Token.Keyword", foreground='#ee2400')  # red
+        self.tag_configure("Token.Keyword.Constant", foreground='#42a5f5')  # blue
+        self.tag_configure("Token.Keyword.Declaration", foreground='#42a5f5')  # blue
+        self.tag_configure("Token.Keyword.Namespace", foreground='#ee2400')  # red
+        self.tag_configure("Token.Name", foreground='#444444')  # blue
+        self.tag_configure("Token.Name.Builtin", foreground='#42a5f5')  # blue
+        self.tag_configure("Token.Name.Class", foreground='#7f00ff')  # violet
+        self.tag_configure("Token.Name.Function", foreground='#7f50af')  # violet
+        self.tag_configure("Token.Name.Function.Magic", foreground='#42a5f5')  # blue
+        self.tag_configure("Token.Name.Variable.Magic", foreground='#42a5f5')  # blue
+        self.tag_configure("Token.Literal.String.Affix", foreground='#ee2400')  # red
+        self.tag_configure("Token.Literal.String.Escape", foreground='#7f00ff')  # red
+        self.tag_configure("Token.Literal.String", foreground='#008000')  # green
+        self.tag_configure("Token.Operator", foreground='#ee2400')  # red
+        self.tag_configure("Token.Operator.Word", foreground='#ee2400')  # red
+        self.tag_configure("Token.Punctuation", foreground='#888888')  # dark grey
+        self.tag_configure("Token.Name.Tag", foreground='#ee2400')  # red
+        self.tag_configure("Token.Name.Variable", foreground='#42a5f5')  # blue
+        self.tag_configure("Token.Name.Variable.Class", foreground='#42a5f5')  # blue
+        self.tag_configure("Token.Name.Variable.Global", foreground='#42a5f5')  # blue
+        self.tag_configure("Token.Name.Variable.Instance", foreground='#42a5f5')  # blue
+        self.tag_configure("Token.Name.Label", foreground='#ee2400')  # red
+        self.tag_configure("Token.Name.Builtin.Pseudo", foreground='#42a5f5')  # blue
+        self.tag_configure("Token.Name.Constant", foreground='#42a5f5')  # blue
+        self.tag_configure("Token.Name.Entity", foreground='#7f00ff')  # violet
+        self.tag_configure("Token.Name.Exception", foreground='#ee2400')  # red
+        self.tag_configure("Token.Name.Decorator", foreground='#7f00ff')  # violet
+        self.tag_configure("Token.Name.Attribute", foreground='#ff8c00')  # orange
+        self.tag_configure("Token.Name.Namespace", foreground='#42a5f5')  # blue
+        self.tag_configure("Token.Keyword.Pseudo", foreground='#7f00ff')  # violet
+        self.tag_configure("Token.Keyword.Reserved", foreground='#ee2400')  # red
+        self.tag_configure("Token.Keyword.Type", foreground='#42a5f5')  # blue
         
         # Numbers
         for suffix in ("Float", "Bin", "Hex", "Integer", "Integer.Long", "Oct"):
             tag = "Token.Literal.Number.%s" % suffix
             self.tag_configure(tag, foreground='#42a5f5')
         # Strings
-        
-        for suffix in ('Single', 'Double', 'Char', 'Doc', 'Other', 'Backtick', 'Symbol', 'Interpol', 'Regex', "Heredoc", "Delimeter"):
+
+        string_identifiers = (
+            'Single', 'Double', 'Char',
+            'Doc', 'Other', 'Backtick', 'Symbol',
+            'Interpol', 'Regex', "Heredoc", "Delimiter"
+        )
+
+        for suffix in string_identifiers:
             tag = "Token.Literal.String.%s" % suffix
-            self.tag_configure(tag, foreground='#008000') #blue
+            self.tag_configure(tag, foreground='#008000')  # blue
 
     def _update(self, *event):
         self._config_tags()
