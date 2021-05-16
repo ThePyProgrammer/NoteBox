@@ -28,6 +28,8 @@ from idlelib.statusbar import MultiStatusBar
 from reversio import othello
 
 
+# from idlelib.textview import AutoHideScrollbar
+
 # =============================  FUNCTIONS  =============================#
 def isName(name):  #
     try:
@@ -36,7 +38,6 @@ def isName(name):  #
         return False  #
     else:
         return True  #
-    #
     #
 
 
@@ -354,8 +355,8 @@ def noteui(nb, filename=None):  #
         text.bind('<<Change>>', saveit, add='+')
         text.config(font=text.font)
     else:
-        text.bind('<<Configure>>', notdone, add='+')
-        text.bind('<<Change>>', notdone, add='+')
+        text.bind('<<Configure>>', notsaved, add='+')
+        text.bind('<<Change>>', notsaved, add='+')
 
     text.focus()
     text.bind('<F5>', func2)
@@ -1083,15 +1084,15 @@ fontmenu.add_command(label="{font}", command=Font{''.join(font.split())}())''', 
     menubar.add_cascade(label='Play Music', menu=musicmenu)
     menubar.add_command(label='Full Screen', command=toggle_size)
 
-    # widmenu = Menu(menubar, tearoff=0)
-    # widmenu.add_command(label='Clock', command=clock)
-    # widmenu.add_command(label='Calendar', command=cal)
+    widmenu = Menu(menubar, tearoff=0)
+    widmenu.add_command(label='Clock', command=clock)
+    widmenu.add_command(label='Calendar', command=cal)
     # widmenu.add_command(label='Calculator', command=toggle_calc)
-    # menubar.add_cascade(label='Widgets', menu=widmenu)
+    menubar.add_cascade(label='Widgets', menu=widmenu)
     menubar.add_command(label="Canva", command=canva)
     menubar.add_command(label="Othello", command=oth)
     menubar.add_command(label="Piano", command=pia)
-    # menubar.add_command(label="Chromium", command=chrome)
+    menubar.add_command(label="Chromium", command=chrome)
 
     modemenu = Menu(menubar, tearoff=0)
     modemenu.add_command(label="Dark Mode", command=DarkMode)
@@ -1216,7 +1217,7 @@ fontmenu.add_command(label="{font}", command=Font{''.join(font.split())}())''', 
 Thread(target=notebox()).start()
 """
 class EmailTK(Frame):
-    
+
     def __init__(self, master):
         from envelopes import GMailSMTP
         super().__init__(master)
@@ -1253,3 +1254,4 @@ root = Tk()
 EmailTK(root).pack()
 root.mainloop()
 """
+
