@@ -9,7 +9,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 #Library import
-from gooey import *
+from tkinter import *
 from tkinter import Canvas, ALL
 from math import *
 from time import *
@@ -154,14 +154,14 @@ def othello(root):
                         self.oldarray = self.array
                         self.oldarray[x][y]="w"
                         self.array = move(self.array,x,y)
-                        
+
                         #Switch Player
                         self.player = 1-self.player
                         self.update()
-                        
+
                         #Check if ai must pass
                         self.passTest()
-                        self.update()	
+                        self.update()
 
                 #METHOD: Draws scoreboard to screen
                 def drawScoreBoard(self):
@@ -362,20 +362,16 @@ def othello(root):
                 #Must copy the passedArray so we don't alter the original
                 array = deepcopy(passedArray)
                 #Set colour and set the moved location to be that colour
-                if board.player==0:
-                        colour = "w"
-                        
-                else:
-                        colour="b"
-                array[x][y]=colour
-                
+                colour = "b" if board.player else "w"
+                array[x][y] = colour
+
                 #Determining the neighbours to the square
                 neighbours = []
-                for i in range(max(0,x-1),min(x+2,8)):
-                        for j in range(max(0,y-1),min(y+2,8)):
-                                if array[i][j]!=None:
-                                        neighbours.append([i,j])
-                
+                for i in range(max(0, x-1), min(x+2, 8)):
+                        for j in range(max(0, y-1), min(y+2, 8)):
+                                if array[i][j] != None:
+                                        neighbours.append([i, j])
+
                 #Which tiles to convert
                 convert = []
 
@@ -388,7 +384,6 @@ def othello(root):
                         if array[neighX][neighY]!=colour:
                                 #The path of each individual line
                                 path = []
-                                
                                 #Determining direction to move
                                 deltaX = neighX-x
                                 deltaY = neighY-y
@@ -412,7 +407,7 @@ def othello(root):
                                         #Move the tile
                                         tempX+=deltaX
                                         tempY+=deltaY
-                                        
+
                 #Convert all the appropriate tiles
                 for node in convert:
                         array[node[0]][node[1]]=colour
@@ -466,7 +461,7 @@ def othello(root):
                 else:
                         colour = "w"
                         opponent = "b"
-                #Go through all the tiles	
+                #Go through all the tiles
                 for x in range(8):
                         for y in range(8):
                                 #Normal tiles worth 1
@@ -498,12 +493,12 @@ def othello(root):
                 else:
                         colour = "w"
                         opponent = "b"
-                #Go through all the tiles	
+                #Go through all the tiles
                 for x in range(8):
                         for y in range(8):
                                 #Normal tiles worth 1
                                 add = 1
-                                
+
                                 #Adjacent to corners are worth -3
                                 if (x==0 and y==1) or (x==1 and 0<=y<=1):
                                         if array[0][0]==colour:
@@ -567,7 +562,7 @@ def othello(root):
                         colour="w"
                 else:
                         colour="b"
-                        
+
                 #If there's already a piece there, it's an invalid move
                 if array[x][y]!=None:
                         return False
@@ -591,7 +586,7 @@ def othello(root):
 
                                         neighX = neighbour[0]
                                         neighY = neighbour[1]
-                                        
+
                                         #If the neighbour colour is equal to your colour, it doesn't form a line
                                         #Go onto the next neighbour
                                         if array[neighX][neighY]==colour:
@@ -633,7 +628,7 @@ def othello(root):
                                         x = int((event.x-50)/50)
                                         y = int((event.y-50)/50)
                                         #Determine the grid index for where the mouse was clicked
-                                        
+
                                         #If the click is inside the bounds and the move is valid, move to that location
                                         if 0<=x<=7 and 0<=y<=7:
                                                 if valid(board.array,board.player,x,y):
@@ -678,14 +673,14 @@ def othello(root):
                         #"X"
                         screen.create_line(455,5,495,45,fill="white",width="3")
                         screen.create_line(495,5,455,45,fill="white",width="3")
-                
+
         def runGame():
                 global running
                 running = False
                 #Title and shadow
                 screen.create_text(250,203,anchor="c",text="Othello",font=("Consolas", 50),fill="#aaa")
                 screen.create_text(250,200,anchor="c",text="Othello",font=("Consolas", 50),fill="#fff")
-                
+
                 #Creating the difficulty buttons
                 for i in range(3):
                         #Background
